@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ligne_maintenance</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ligne_maintenance.id }}</td>
+            </tr>
+            <tr>
+                <th>Observation</th>
+                <td>{{ ligne_maintenance.observation }}</td>
+            </tr>
+            <tr>
+                <th>Piece</th>
+                <td>{{ ligne_maintenance.piece }}</td>
+            </tr>
+            <tr>
+                <th>Fournisseur</th>
+                <td>{{ ligne_maintenance.fournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Prixunitairepiece</th>
+                <td>{{ ligne_maintenance.prixUnitairePiece }}</td>
+            </tr>
+            <tr>
+                <th>Qtepiece</th>
+                <td>{{ ligne_maintenance.qtePiece }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ligne_maintenance_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ligne_maintenance_edit', { 'id': ligne_maintenance.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

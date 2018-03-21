@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="card">
+        <div class="card-header">
+            <span>Nouveau Client</span>
+        </div>
+        <div class="card-body text-left">
+            {{ form_start(form) }}
+                <table class="table table-striped table-hove">
+                    <tbody>                
+                        <tr>
+                            <td>{{ form_label(form.nomClient) }}</td>
+                            <td>{{ form_widget(form.nomClient) }}</td>
+                            <td>{{ form_errors(form.nomClient) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label(form.adresse) }}</td>
+                            <td>{{ form_widget(form.adresse) }}</td>
+                            <td>{{ form_errors(form.adresse) }}</td>
+                        </tr>
+                       
+                        <tr class="record_actions">
+                            <td colspan="3">
+                                <div class="btn-group" role="group" aria-label="List">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                    <a href="{{ path('client_index') }}" class="btn btn-primary">Liste</a>
+                                </div>   
+                            </td>                    
+                        </tr>
+                    </tbody>
+                </table>    
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

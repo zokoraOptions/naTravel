@@ -1,0 +1,16 @@
+.content {
+    width: 92%;
+    margin: 2% 5% 5% 5%;
+    padding: 2%;
+    background: #007bff1a;
+}
+.right {
+	float: right; 
+	width: 70%;
+	position: relative;
+}
+.left {
+	float: left; 
+	width: 28%; 
+	position: relative;
+}

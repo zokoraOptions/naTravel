@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Maintenances list</h1>
+
+    <table class="table table-striped table-hove">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Datemaintenance</th>
+                <th>Kilometrage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for maintenance in maintenances %}
+            <tr>
+                <td><a href="{{ path('maintenance_show', { 'id': maintenance.id }) }}">{{ maintenance.id }}</a></td>
+                <td>{% if maintenance.dateMaintenance %}{{ maintenance.dateMaintenance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ maintenance.kilometrage }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="List">
+                        <a href="{{ path('maintenance_show', { 'id': maintenance.id }) }}" class="btn btn-primary">show</a>
+                    
+                        <a href="{{ path('maintenance_edit', { 'id': maintenance.id }) }}" class="btn btn-primary">edit</a>
+                    
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('maintenance_new') }}">Create a new maintenance</a>
+        </li>
+    </ul>
+{% endblock %}

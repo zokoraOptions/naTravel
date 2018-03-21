@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Transports list</h1>
+
+    <table class="table table-striped table-hove table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Transit</th>
+                <th>Comission (Ar)</th>
+                <th>Date transport</th>
+                <th>Coût maintenance (Ar)</th>
+                <th>Coût carburant (Ar)</th>
+                <th>Vatsy</th>
+                <th>Clients</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transport in transports %}
+            <tr>
+                <td><a href="{{ path('transport_show', { 'id': transport.id }) }}">{{ transport.id }}</a></td>
+                <td>{{ transport.transit }}</td>
+                <td>{{ transport.comission }}</td>
+                <td>{% if transport.dateTransport %}{{ transport.dateTransport|date('d-m-Y') }}{% endif %}</td>
+                <td>{{ transport.totalMaintenances }}</td>
+                <td>{{ transport.totalcarburants }}</td>
+                <td>-</td>
+                <td>
+                    {% for client in transport.clients %}
+                        <a href="{{ path('client_show', { 'id': client.id }) }}"><span class="badge badge-secondary">{{client.nomClient}}</span></a>
+                    {% endfor %}
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="List">
+                            <a href="{{ path('transport_show', { 'id': transport.id }) }}" class="btn btn-primary">show</a>
+                            <a href="{{ path('transport_edit', { 'id': transport.id }) }}" class="btn btn-primary">edit</a>
+                            <button id="btn_supp" data-toggle="modal" data-target="#deleteModal{{transport.id}}" class="btn btn-danger">Supprimer</button>
+                    </div>
+                </td>
+            </tr>
+            <div class="modal fade" id="deleteModal{{transport.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Voulez-vous vraiment supprimer?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>                            
+                                <a href="{{ path('transport_delete', { 'id': transport.id }) }}" class="btn btn-danger">Supprimer</a>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %} 
+        </tbody>
+    </table>
+
+    <div class="btn-group" role="group" aria-label="List">
+        <a href="{{ path('transport_new') }}" class="btn btn-success">Create a new transport</a>
+    </div>
+{% endblock %}

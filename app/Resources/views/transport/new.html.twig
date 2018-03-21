@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Transport creation</h1>
+
+    {{ form_start(form) }}
+        <table class="table table-striped table-hove">
+            <tbody>                
+                <tr>
+                    <td>{{ form_label(form.transit) }}</td>
+                    <td>{{ form_widget(form.transit) }}</td>
+                    <td>{{ form_errors(form.transit) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.comission) }}</td>
+                    <td>{{ form_widget(form.comission) }}</td>
+                    <td>{{ form_errors(form.comission) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.dateTransport) }}</td>
+                    <td>{{ form_widget(form.dateTransport) }}</td>
+                    <td>{{ form_errors(form.dateTransport) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.clients) }}</td>
+                    <td>{{ form_widget(form.clients) }}</td>
+                    <td>{{ form_errors(form.clients) }}</td>
+                </tr>                
+                <tr>
+                    <td>{{ form_label(form.camion) }}</td>
+                    <td>{{ form_widget(form.camion) }}</td>
+                    <td>{{ form_errors(form.camion) }}</td>
+                </tr>  
+                <tr class="record_actions">
+                    <td>
+                        <div lass="btn-group" role="group" aria-label="List">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                            <a href="{{ path('transport_index') }}" class="btn btn-primary" >Back to the list</a>
+                        </div>   
+                    </td>                    
+                </tr>
+            </tbody>
+        </table>        
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ligne_maintenances list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Observation</th>
+                <th>Piece</th>
+                <th>Fournisseur</th>
+                <th>Prixunitairepiece</th>
+                <th>Qtepiece</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_maintenance in ligne_maintenances %}
+            <tr>
+                <td><a href="{{ path('ligne_maintenance_show', { 'id': ligne_maintenance.id }) }}">{{ ligne_maintenance.id }}</a></td>
+                <td>{{ ligne_maintenance.observation }}</td>
+                <td>{{ ligne_maintenance.piece }}</td>
+                <td>{{ ligne_maintenance.fournisseur }}</td>
+                <td>{{ ligne_maintenance.prixUnitairePiece }}</td>
+                <td>{{ ligne_maintenance.qtePiece }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ligne_maintenance_show', { 'id': ligne_maintenance.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ligne_maintenance_edit', { 'id': ligne_maintenance.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ligne_maintenance_new') }}">Create a new ligne_maintenance</a>
+        </li>
+    </ul>
+{% endblock %}

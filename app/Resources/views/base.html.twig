@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Gestionnaire de Transport{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+        
+    </head>
+    <body>
+        <div class="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav justify-content-end">                    
+                    <li class="nav-item"><a class="nav-link"  href="{{path('transport_index')}}">Transport</a></li> 
+                    <li class="nav-item"><a class="nav-link"  href="{{path('camion_index')}}">Camion</a></li> 
+                    <li class="nav-item"><a class="nav-link"  href="{{path('conducteur_index')}}">Conducteur</a></li> 
+                    <li class="nav-item"><a class="nav-link"  href="{{path('carburant_index')}}">Suivi carburant</a></li> 
+                    <li class="nav-item"><a class="nav-link"  href="{{path('maintenance_index')}}">Maintenance</a></li> 
+                    <li class="nav-item"><a class="nav-link"  href="{{path('ligne_maintenance_index')}}">Ligne Maintenance</a></li> 
+                    <li class="nav-item"><a class="nav-link"   href="{{path('client_index')}}">Client</a></li> 
+                    <li class="nav-item"><a class="nav-link"  href="#">Facture</a></li> 
+                </ul>
+                {% block header%}{% endblock %}
+            </nav>
+        <div class="card">
+            <div class="card-header">
+            
+            </div>
+            <div class="card-body">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+
+            {% block javascripts %}
+                <script language="JavaScript" src="{{asset('js/jquery.js')}}"></script>
+                <script language="JavaScript" src="{{asset('js/bootstrap.js')}}"></script>
+            {% endblock %}
+        </div>
+    </body>
+</html>

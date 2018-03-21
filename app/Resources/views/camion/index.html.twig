@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Camions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Plaqueimm</th>
+                <th>Tierce</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for camion in camions %}
+            <tr>
+                <td><a href="{{ path('camion_show', { 'id': camion.id }) }}">{{ camion.id }}</a></td>
+                <td>{{ camion.plaqueImm }}</td>
+                <td>{% if camion.tierce %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('camion_show', { 'id': camion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('camion_edit', { 'id': camion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('camion_new') }}">Create a new camion</a>
+        </li>
+    </ul>
+{% endblock %}

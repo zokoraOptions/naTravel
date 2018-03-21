@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Carburants list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Typecarburant</th>
+                <th>Prixunitaire</th>
+                <th>Numcartecarburant</th>
+                <th>Fournisseur</th>
+                <th>Total</th>
+                <th>Qte</th>
+                <th>Dateachat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carburant in carburants %}
+            <tr>
+                <td><a href="{{ path('carburant_show', { 'id': carburant.id }) }}">{{ carburant.id }}</a></td>
+                <td>{{ carburant.typeCarburant }}</td>
+                <td>{{ carburant.prixUnitaire }}</td>
+                <td>{{ carburant.numCarteCarburant }}</td>
+                <td>{{ carburant.fournisseur }}</td>
+                <td>{{ carburant.total }}</td>
+                <td>{{ carburant.qte }}</td>
+                <td>{% if carburant.dateAchat %}{{ carburant.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('carburant_show', { 'id': carburant.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('carburant_edit', { 'id': carburant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('carburant_new') }}">Create a new carburant</a>
+        </li>
+    </ul>
+{% endblock %}
