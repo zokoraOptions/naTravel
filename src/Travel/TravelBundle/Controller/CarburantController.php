@@ -48,7 +48,7 @@ class CarburantController extends Controller
             $em->persist($carburant);
             $em->flush();
 
-            return $this->redirectToRoute('carburant_show', array('id' => $carburant->getId()));
+            return $this->redirectToRoute('transport_show', array('id' => $carburant->getTransport()->getId()));
         }
 
         return $this->render('carburant/new.html.twig', array(

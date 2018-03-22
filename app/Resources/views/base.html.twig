@@ -11,24 +11,19 @@
     </head>
     <body>
         <div class="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav justify-content-end">                    
-                    <li class="nav-item"><a class="nav-link"  href="{{path('transport_index')}}">Transport</a></li> 
-                    <li class="nav-item"><a class="nav-link"  href="{{path('camion_index')}}">Camion</a></li> 
-                    <li class="nav-item"><a class="nav-link"  href="{{path('conducteur_index')}}">Conducteur</a></li> 
-                    <li class="nav-item"><a class="nav-link"  href="{{path('carburant_index')}}">Suivi carburant</a></li> 
-                    <li class="nav-item"><a class="nav-link"  href="{{path('maintenance_index')}}">Maintenance</a></li> 
-                    <li class="nav-item"><a class="nav-link"  href="{{path('ligne_maintenance_index')}}">Ligne Maintenance</a></li> 
-                    <li class="nav-item"><a class="nav-link"   href="{{path('client_index')}}">Client</a></li> 
-                    <li class="nav-item"><a class="nav-link"  href="#">Facture</a></li> 
-                </ul>
+            <nav class="nav nav-pills nav-justified">                   
+                    <a class="nav-link"  href="{{path('transport_index')}}">Transport</a> 
+                    <a class="nav-link"  href="{{path('camion_index')}}">Camion</a> 
+                    <a class="nav-link"  href="{{path('conducteur_index')}}">Conducteur</a> 
+                    <a class="nav-link"  href="{{path('carburant_index')}}">Suivi carburant</a> 
+                    <a class="nav-link"  href="{{path('maintenance_index')}}">Maintenance</a> 
+                    <a class="nav-link"  href="{{path('ligne_maintenance_index')}}">Ligne Maintenance</a> 
+                    <a class="nav-link"   href="{{path('client_index')}}">Client</a> 
+                    <a class="nav-link"  href="#">Facture</a> 
+                
                 {% block header%}{% endblock %}
             </nav>
-        <div class="card">
-            <div class="card-header">
-            
-            </div>
+        <div class="card">            
             <div class="card-body">
                 {% block body %}{% endblock %}
             </div>

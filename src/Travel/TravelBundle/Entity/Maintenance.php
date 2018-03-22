@@ -135,7 +135,7 @@ class Maintenance
     }
     
     public function __toString(){
-        return "Maintenance ".$this->transport->getCamion()->getPlaqueImm();
+        return "Maintenance ".$this->getId().' '.$this->transport->getCamion()->getPlaqueImm();
     }
    
     /**

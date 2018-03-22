@@ -34,17 +34,22 @@ class MaintenanceController extends Controller
     /**
      * Creates a new maintenance entity.
      *
-     * @Route("/new", name="maintenance_new")
+     * @Route("/new/{idTransport}", name="maintenance_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,$idTransport)
     {
+        $em = $this->getDoctrine()->getManager();
         $maintenance = new Maintenance();
+        $transport= $em->getRepository('TravelBundle:Transport')->find($idTransport);
+        if (!empty($transport)) {
+            $maintenance->setTransport($transport);
+        }
         $form = $this->createForm('Travel\TravelBundle\Form\MaintenanceType', $maintenance);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            
             $em->persist($maintenance);
             $em->flush();
 

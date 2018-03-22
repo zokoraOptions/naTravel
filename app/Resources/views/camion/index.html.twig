@@ -3,8 +3,8 @@
 {% block body %}
     <h1>Camions list</h1>
 
-    <table>
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Plaqueimm</th>
@@ -19,23 +19,15 @@
                 <td>{{ camion.plaqueImm }}</td>
                 <td>{% if camion.tierce %}Yes{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('camion_show', { 'id': camion.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('camion_edit', { 'id': camion.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <div class="btn-group" role="group" aria-label="List">
+                        <a href="{{ path('camion_show', { 'id': camion.id }) }}" class="btn btn-primary">show</a>
+                        <a href="{{ path('camion_edit', { 'id': camion.id }) }}" class="btn btn-primary">edit</a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('camion_new') }}">Create a new camion</a>
-        </li>
-    </ul>
+            <a class="btn btn-primary" href="{{ path('camion_new') }}">Nouveau</a>
 {% endblock %}

@@ -3,8 +3,8 @@
 {% block body %}
     <h1>Conducteurs list</h1>
 
-    <table>
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Nomconducteur</th>
@@ -19,23 +19,13 @@
                 <td>{{ conducteur.nomConducteur }}</td>
                 <td>{{ conducteur.permisNumero }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('conducteur_show', { 'id': conducteur.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('conducteur_edit', { 'id': conducteur.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <div class="btn-group" role="group" aria-label="List">
+                        <a href="{{ path('conducteur_show', { 'id': conducteur.id }) }}" class="btn btn-primary">show</a>                   
+                        <a href="{{ path('conducteur_edit', { 'id': conducteur.id }) }}" class="btn btn-primary">edit</a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('conducteur_new') }}">Create a new conducteur</a>
-        </li>
-    </ul>
 {% endblock %}

@@ -89,7 +89,7 @@ class TransportController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('transport_edit', array('id' => $transport->getId()));
+            return $this->redirectToRoute('transport_show', array('id' => $transport->getId()));
         }
 
         return $this->render('transport/edit.html.twig', array(

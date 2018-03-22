@@ -3,8 +3,8 @@
 {% block body %}
     <h1>Ligne_maintenances list</h1>
 
-    <table>
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Observation</th>
@@ -25,23 +25,13 @@
                 <td>{{ ligne_maintenance.prixUnitairePiece }}</td>
                 <td>{{ ligne_maintenance.qtePiece }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('ligne_maintenance_show', { 'id': ligne_maintenance.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('ligne_maintenance_edit', { 'id': ligne_maintenance.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <div class="btn-group" role="group" aria-label="List">
+                        <a href="{{ path('ligne_maintenance_show', { 'id': ligne_maintenance.id }) }}" class="btn btn-primary">show</a>
+                        <a href="{{ path('ligne_maintenance_edit', { 'id': ligne_maintenance.id }) }}" class="btn btn-primary">edit</a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('ligne_maintenance_new') }}">Create a new ligne_maintenance</a>
-        </li>
-    </ul>
 {% endblock %}

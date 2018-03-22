@@ -78,6 +78,11 @@ class Transport
      * @var double
      *
      */
+    private $totalQteCarburants;
+    /**
+     * @var double
+     *
+     */
     private $totalMaintenances;
 
 
@@ -327,5 +332,16 @@ class Transport
         }
         $this->totalCarburants=$somme_montant;
         return $this->totalCarburants;
+    }
+    public function getTotalQteCarburants()
+    {
+        $qte=0;        
+        if (!empty($this->carburants)) {
+            foreach ($this->carburants as $ligne) {
+                $qte+=$ligne->getQte();
+            }
+        }
+        $this->totalQteCarburants=$qte;
+        return $this->totalQteCarburants;
     }
 }

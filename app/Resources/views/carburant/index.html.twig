@@ -3,8 +3,8 @@
 {% block body %}
     <h1>Carburants list</h1>
 
-    <table>
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Typecarburant</th>
@@ -29,23 +29,13 @@
                 <td>{{ carburant.qte }}</td>
                 <td>{% if carburant.dateAchat %}{{ carburant.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('carburant_show', { 'id': carburant.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('carburant_edit', { 'id': carburant.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                   <div class="btn-group" role="group" aria-label="List">
+                        <a href="{{ path('carburant_show', { 'id': carburant.id }) }}" class="btn btn-primary">show</a>
+                        <a href="{{ path('carburant_edit', { 'id': carburant.id }) }}" class="btn btn-primary">edit</a>                     
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('carburant_new') }}">Create a new carburant</a>
-        </li>
-    </ul>
+    </table>   
 {% endblock %}

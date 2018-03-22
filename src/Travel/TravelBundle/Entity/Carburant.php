@@ -169,6 +169,19 @@ class Carburant
 
         return $this->total;
     }
+    /**
+     * Set total
+     *
+     * @param double $total
+     *
+     * @return Carburant
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
 
     /**
      * Set transport

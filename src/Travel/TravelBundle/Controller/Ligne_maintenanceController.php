@@ -48,7 +48,7 @@ class Ligne_maintenanceController extends Controller
             $em->persist($ligne_maintenance);
             $em->flush();
 
-            return $this->redirectToRoute('ligne_maintenance_show', array('id' => $ligne_maintenance->getId()));
+            return $this->redirectToRoute('maintenance_show', array('id' => $ligne_maintenance->getMaintenance()->getId()));
         }
 
         return $this->render('ligne_maintenance/new.html.twig', array(
